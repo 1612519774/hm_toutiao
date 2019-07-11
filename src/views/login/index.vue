@@ -58,7 +58,8 @@ export default {
             console.log(data)
             // 2.保持登录状态
             this.$router.push('/')
-          }).catch(() => {
+          }).catch((err) => {
+            console.log(err)
             this.$message.error('用户或者密码错误')
           })
         }
