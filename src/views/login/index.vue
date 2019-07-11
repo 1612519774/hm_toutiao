@@ -53,14 +53,14 @@ export default {
     login () {
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
-          this.axios
-            .post('http://ttapi.research.itcast.cn/mp/v1_0/authorizations', this.loginForm)
-            .then((res) => {
-              const data = this.data
-              console.log(data)
-              // 2.保持登录状态
-              this.$router.push('/')
-            })
+          this.axios.post('http://ttapi.research.itcast.cn/mp/v1_0/authorizations', this.loginForm).then((res) => {
+            const data = this.data
+            console.log(data)
+            // 2.保持登录状态
+            this.$router.push('/')
+          }).catch(() => {
+            this.$message.error('用户或者密码错误')
+          })
         }
       })
     }
