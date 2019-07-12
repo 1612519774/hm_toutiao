@@ -30,5 +30,10 @@ const router = new VueRouter({
   }
   ]
 })
+router.beforeEach((to, from, next) => {
+  const user = window.sessionStorage.getItem('hm_toutiao')
+  if (to.path !== '/login' && !user) return next('/login')
+  next()
+})
 
 export default router

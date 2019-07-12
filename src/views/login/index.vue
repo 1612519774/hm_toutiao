@@ -57,6 +57,7 @@ export default {
             const data = this.data
             console.log(data)
             // 2.保持登录状态
+            window.sessionStorage.setItem('hm_toutiao', JSON.stringify(res.data.data))
             this.$router.push('/')
           }).catch((err) => {
             console.log(err)

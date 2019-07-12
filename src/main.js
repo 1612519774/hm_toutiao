@@ -6,7 +6,7 @@ import ElementUI from 'element-ui'
 // 引入样式
 import 'element-ui/lib/theme-chalk/index.css'
 import router from '@/router'
-import axios from 'axios'
+import axios from '@/api/axios'
 Vue.prototype.axios = axios
 // 在全局范围注册组件（注册element-ui组件库）
 Vue.use(ElementUI)
