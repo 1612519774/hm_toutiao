@@ -1,6 +1,6 @@
 <template>
-<div class='container'>
-<img src="../../assets/images/welcome.jpg" class="round">
+<div class='wel_container'>
+<img src="../../assets/images/welcome.jpg" >
 </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style lang="less">
-.round{
+.wel_container img{
 display: inline-block;
 position: absolute;
 left: 50%;

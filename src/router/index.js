@@ -4,24 +4,30 @@ import Vue from 'vue'
 import Login from '@/views/login'
 import Home from '@/views/home'
 import Welcome from '@/views/welcome'
+import notFound from '@/views/404'
 
 // 在全局范围实力化
 Vue.use(VueRouter)
 const router = new VueRouter({
-  routes: [
-    {
-      name: 'login', path: '/login', component: Login
-    },
-    {
+  routes: [{
+    name: 'login',
+    path: '/login',
+    component: Login
+  },
+  {
+    path: '/',
+    component: Home,
+    children: [{
       path: '/',
-      name: 'home',
-      component: Home,
-      children: [
-        {
-          path: '/', name: 'welcome', component: Welcome
-        }
-      ]
-    }
+      name: 'welcome',
+      component: Welcome
+    }]
+  },
+  {
+    path: '*',
+    name: '404',
+    component: notFound
+  }
   ]
 })
 
