@@ -51,18 +51,29 @@ export default {
   },
   methods: {
     login () {
-      this.$refs.loginForm.validate((valid) => {
+      // this.$refs.loginForm.validate((valid) => {
+      //   if (valid) {
+      //     this.axios.post('http://ttapi.research.itcast.cn/mp/v1_0/authorizations', this.loginForm).then((res) => {
+      //       const data = this.data
+      //       console.log(data)
+      //       // 2.保持登录状态
+      //       window.sessionStorage.setItem('hm_toutiao', JSON.stringify(res.data.data))
+      //       this.$router.push('/')
+      //     }).catch((err) => {
+      //       console.log(err)
+      //       this.$message.error('用户或者密码错误')
+      //     })
+      //   }
+      // })
+      this.$refs.loginForm.validate(async valid => {
         if (valid) {
-          this.axios.post('http://ttapi.research.itcast.cn/mp/v1_0/authorizations', this.loginForm).then((res) => {
-            const data = this.data
-            console.log(data)
-            // 2.保持登录状态
-            window.sessionStorage.setItem('hm_toutiao', JSON.stringify(res.data.data))
+          try {
+            const res = await this.axios.post('authorizations', this.loginForm)
+            window.sessionStorage.setItem('hm-toutiao', JSON.stringify(res.data.data))
             this.$router.push('/')
-          }).catch((err) => {
-            console.log(err)
+          } catch (err) {
             this.$message.error('用户或者密码错误')
-          })
+          }
         }
       })
     }
