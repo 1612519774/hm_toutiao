@@ -70,7 +70,7 @@ export default {
         if (valid) {
           try {
             const res = await this.axios.post('authorizations', this.loginForm)
-            window.sessionStorage.setItem('hm-toutiao', JSON.stringify(res.data.data))
+            window.sessionStorage.setItem('hm_toutiao', JSON.stringify(res.data.data))
             this.$router.push('/')
           } catch (err) {
             this.$message.error('用户或者密码错误')
