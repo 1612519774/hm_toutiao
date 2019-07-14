@@ -4,6 +4,7 @@ import Vue from 'vue'
 import Login from '@/views/login'
 import Home from '@/views/home'
 import Welcome from '@/views/welcome'
+import Article from '@/views/article'
 import notFound from '@/views/404'
 
 // 在全局范围实力化
@@ -14,6 +15,7 @@ const router = new VueRouter({
     path: '/login',
     component: Login
   },
+
   {
     path: '/',
     component: Home,
@@ -21,8 +23,14 @@ const router = new VueRouter({
       path: '/',
       name: 'welcome',
       component: Welcome
-    }]
+    },
+    {
+      name: 'article',
+      path: '/article',
+      component: Article
+    } ]
   },
+
   {
     path: '*',
     name: '404',

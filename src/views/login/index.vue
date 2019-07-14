@@ -65,6 +65,7 @@ export default {
       //     })
       //   }
       // })
+
       this.$refs.loginForm.validate(async valid => {
         if (valid) {
           try {

@@ -6,10 +6,8 @@
 
 <script>
 export default {
-
 }
 </script>
-
 <style lang="less">
 .wel_container img{
 display: inline-block;
