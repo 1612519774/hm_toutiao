@@ -50,7 +50,7 @@
         <el-dropdown style=" float: right">
           <span class="el-dropdown-link">
             <img :src="avatar" style=" vertical-align: middle" with="30" height="30" />
-            <b style=" vertical-align: middle;padding-left:5px">{{name}}</b>
+            <b style=" vertical-align: middle;padding-left:5px">{{ name }}</b>
             <i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
@@ -76,7 +76,7 @@ export default {
     }
   },
   created () {
-    const user = JSON.parse(window.sessionStorage.getItem('hm-toutiao'))
+    const user = JSON.parse(window.sessionStorage.getItem('hm_toutiao'))
     this.name = user.name
     this.avatar = user.photo
   },
@@ -88,7 +88,7 @@ export default {
       this.$router.push('/setting')
     },
     logout () {
-      window.sessionStorage.removeItem('hm-toutiao')
+      window.sessionStorage.removeItem('hm_toutiao')
       this.$router.push('/login')
     }
   }
