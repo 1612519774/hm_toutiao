@@ -15,9 +15,7 @@
           </el-radio-group>
         </el-form-item>
         <el-form-item label="频道：">
-         <my-channel v-model='reqParams.channel_id'>
-
-         </my-channel>
+          <my-channel v-model="reqParams.channel_id"></my-channel>
         </el-form-item>
         <el-form-item label="时间：">
           <el-date-picker
@@ -32,6 +30,7 @@
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="search()">筛选</el-button>
+          <el-button type="warning" @click="rest()">重置</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -84,6 +83,7 @@
 
 <script>
 export default {
+  inject: ['reload'],
   data () {
     return {
       reqParams: {
@@ -126,7 +126,7 @@ export default {
           this.$message.success('删除成功')
         })
         .catch(() => {
-        // 点击取消
+          // 点击取消
         })
     },
     // 分页条数
@@ -139,7 +139,9 @@ export default {
       this.reqParams.page = 1
       this.getArticle()
     },
-
+    rest () {
+      this.getrest()
+    },
     // 动态获取时间
     changeDate (values) {
       this.reqParams.begin_pubdate = values[0]
@@ -152,8 +154,12 @@ export default {
       } = await this.axios.get('articles', { params: this.reqParams })
       this.articles = data.results
       this.total = data.total_count
+    },
+    getrest () {
+      this.reload()
     }
   }
+
 }
 </script>
 
