@@ -5,6 +5,7 @@ import Login from '@/views/login'
 import Home from '@/views/home'
 import Welcome from '@/views/welcome'
 import Article from '@/views/article'
+import Publish from '@/views/publish'
 import notFound from '@/views/404'
 
 // 在全局范围实力化
@@ -28,7 +29,12 @@ const router = new VueRouter({
       name: 'article',
       path: '/article',
       component: Article
-    } ]
+    },
+    {
+      name: 'publish',
+      path: '/publish',
+      component: Publish
+    }]
   },
 
   {
