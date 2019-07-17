@@ -6,6 +6,11 @@ import Home from '@/views/home'
 import Welcome from '@/views/welcome'
 import Article from '@/views/article'
 import Publish from '@/views/publish'
+import Image from '@/views/image'
+import Comment from '@/views/comment'
+import Fans from '@/views/fans'
+import Setting from '@/views/setting'
+
 import notFound from '@/views/404'
 
 // 在全局范围实力化
@@ -34,7 +39,28 @@ const router = new VueRouter({
       name: 'publish',
       path: '/publish',
       component: Publish
-    }]
+    },
+    {
+      name: 'image',
+      path: '/image',
+      component: Image
+    },
+    {
+      name: 'comment',
+      path: '/comment',
+      component: Comment
+    },
+    {
+      name: 'fans',
+      path: '/fans',
+      component: Fans
+    },
+    {
+      name: 'setting',
+      path: '/setting',
+      component: Setting
+    }
+    ]
   },
 
   {
