@@ -86,7 +86,9 @@ export default {
   inject: ['reload'],
   data () {
     return {
+      // 请求列表的参数reqParams
       reqParams: {
+
         page: 1,
         per_page: 20,
         status: null,
@@ -129,13 +131,15 @@ export default {
           // 点击取消
         })
     },
-    // 分页条数
+    // 列表分页
     changePager (newPage) {
+      // 跳转到当前页
       this.reqParams.page = newPage
       this.getArticle()
     },
     // 筛选调用方法
     search () {
+      // 切换后看到的是第一页
       this.reqParams.page = 1
       this.getArticle()
     },

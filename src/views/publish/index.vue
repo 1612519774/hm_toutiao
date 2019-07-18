@@ -9,8 +9,7 @@
           <el-input v-model="articleForm.title" style="width:400px"></el-input>
         </el-form-item>
         <el-form-item label="内容：">
-          富文本
-            <!-- <quillEditor ref="editor" v-model="articleForm.content" :options="editorOptions"></quillEditor> -->
+          <quillEditor ref="editor" v-model="articleForm.content" :options="editorOptions"></quillEditor>
         </el-form-item>
         <el-form-item label="封面：">
           <el-radio-group v-model="articleForm.cover.type">
@@ -22,10 +21,10 @@
           <div class="img_btn">
             <img src="../../assets/images/default.png" alt />
           </div>
-          </el-form-item>
-          <el-form-item label="频道：">
-            <my-channel v-model="articleForm.channel_id"></my-channel>
-          </el-form-item>
+        </el-form-item>
+        <el-form-item label="频道：">
+          <my-channel v-model="articleForm.channel_id"></my-channel>
+        </el-form-item>
         <el-form-item>
           <el-button type="primary">发表</el-button>
           <el-button>存入草稿</el-button>
@@ -36,45 +35,55 @@
 </template>
 
 <script>
+// require styles 引入样式
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+import { quillEditor } from 'vue-quill-editor'
 export default {
-  //  components: { quillEditor },
+  components: { quillEditor },
   data () {
     return {
       articleForm: {
+        // 声明变量
         title: '',
+        content: '',
         cover: {
           type: 1,
           images: []
         },
         channel_id: null
-
-      }
+      },
       // 编辑器配置
-      // editorOptions: {
-      //   placeholder: '',
-      //   modules: {
-      //     toolbar: [
-      //       ['bold', 'italic', 'underline', 'strike'],
-      //       ['blockquote', 'code-block'],
-      //       [{ header: 1 }, { header: 2 }],
-      //       [{ list: 'ordered' }, { list: 'bullet' }],
-      //       [{ indent: '-1' }, { indent: '+1' }]
-      //     ]
-      //   }
+      editorOptions: {
+        // 占位符置空
+        placeholder: '',
+        // 工具栏中的相关配置
+        modules: {
+          toolbar: [
+            ['bold', 'italic', 'underline', 'strike'],
+            ['blockquote', 'code-block'],
+            [{ header: 1 }, { header: 2 }],
+            [{ list: 'ordered' }, { list: 'bullet' }],
+            [{ indent: '-1' }, { indent: '+1' }]
+          ]
+        }
+      }
     }
   }
 }
 </script>
 
 <style lang="less">
-  .img_btn{
-    width: 300px;
-    height: 300px;
-    border: 1px dashed #ddd;
-    img{
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
+.img_btn {
+  width: 300px;
+  height: 300px;
+  border: 1px dashed #ddd;
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
   }
+}
+
 </style>
