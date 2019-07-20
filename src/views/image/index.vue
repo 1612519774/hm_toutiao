@@ -5,9 +5,9 @@
         <my-bread>素材管理</my-bread>
       </div>
       <div>
-        <el-radio-group v-model="reqParams.collect" size="small">
-          <el-radio-button :label="false"  @click.native.stop="search(false)">全部</el-radio-button>
-          <el-radio-button :label="true"  @click.native.stop="search(true)">收藏</el-radio-button>
+        <el-radio-group v-model="reqParams.collect" size="small"  @change="search()">
+          <el-radio-button :label="false">全部</el-radio-button>
+          <el-radio-button :label="true">收藏</el-radio-button>
         </el-radio-group>
         <el-button
           style="float:right"
@@ -136,8 +136,7 @@ export default {
       this.reqParams.page = newPage
       this.getImages()
     },
-    search (bool) {
-      this.reqParams.collect = bool
+    search () {
       this.reqParams.page = 1
       this.getImages()
     },
@@ -164,8 +163,8 @@ export default {
     float: left;
     margin-right: 20px;
     margin-bottom: 20px;
-    width: 280px;
-    height: 280px;
+    width: 300px;
+    height: 300px;
     border: 1px dashed #ddd;
     position: relative;
     img {

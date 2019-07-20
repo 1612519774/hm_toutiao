@@ -88,7 +88,6 @@ export default {
     return {
       // 请求列表的参数reqParams
       reqParams: {
-
         page: 1,
         per_page: 20,
         status: null,
